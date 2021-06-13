@@ -24,6 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:watch": "yarn run test -- --watch",
     "eject": "react-scripts eject",
     "css": "theme.css"
   },
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@ds-tools/theme.css": "^0.1.0",
+    "@emotion/jest": "^11.3.0",
     "@types/styled-system__css": "^5.0.15"
   }
 }

@@ -11,14 +11,19 @@ const MenuItemWrapper = styled.li(({ selected }: MenuItemProps) =>
       paddingY: 2,
       backgroundColor: selected ? colors.green[100] : colors.white,
       marginY: 2,
-      paddingRight: space["s-15"],
+      paddingRight: space["s-20"],
       color: selected ? colors.white : colors.gray[500],
       fontSize: fontSizes[1],
       cursor: "pointer",
+      overflowWrap: "break-word",
+      wordWrap: "break-word",
+      hyphens: "auto",
+      display: "flex",
+      alignItems: "flex-start",
       "&:hover": {
-        backgroundColor: selected ? colors.green[100] : colors.gray[100],
+        backgroundColor: selected ? colors.green[100] : colors.gray[200],
       },
-      "& span": {
+      "& img": {
         paddingX: space["s-15"],
         opacity: selected ? 1 : 0,
         visibility: selected ? "visible" : "hidden",
@@ -35,4 +40,18 @@ const MenuItemDivider = styled.div(
   }))
 );
 
-export { MenuItemWrapper, MenuItemDivider };
+const MenuItemDescription = styled.p(({ selected }: MenuItemProps) =>
+  css(({ colors, fontSizes }) => {
+    return {
+      fontSize: fontSizes[0],
+      color: selected ? colors.white : colors.gray[400],
+      margin: 0,
+      // minWidth: "100%",
+      // display: "flex",
+      width: 228,
+      whiteSpace: "pre-wrap",
+    };
+  })
+);
+
+export { MenuItemWrapper, MenuItemDescription, MenuItemDivider };

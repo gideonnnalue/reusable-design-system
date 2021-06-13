@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState, useRef } from "react";
+import React, { Fragment, useEffect, useState, useRef, FC } from "react";
 
 import chevronImg from "../../images/chevron-down.svg";
 
@@ -14,11 +14,11 @@ const {
   },
 } = SelectMenuInput;
 
-const Select = ({
+const Select: FC<SelectProps> = ({
   children,
   defaultValue,
   onChange,
-}: SelectProps): JSX.Element => {
+}): JSX.Element => {
   const node: any = useRef();
   const [currentValue, setCurrentValue] = useState(defaultValue);
   const [activeText, setActiveText] = useState("");
@@ -63,8 +63,13 @@ const Select = ({
   }, []);
 
   return (
-    <SelectMenuWrapper ref={node}>
-      <SelectMenuContainer role="button" tabIndex={0} onClick={openSelect}>
+    <SelectMenuWrapper data-testid="select-wrapper" ref={node}>
+      <SelectMenuContainer
+        data-testid="select-button"
+        role="button"
+        tabIndex={0}
+        onClick={openSelect}
+      >
         <span>{activeText || "Select an Item"}</span>
         <img src={chevronImg} alt="arrow" />
       </SelectMenuContainer>

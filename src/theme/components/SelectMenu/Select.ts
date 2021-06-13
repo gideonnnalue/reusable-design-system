@@ -21,7 +21,7 @@ const SelectMenuContainer = styled.div(
       borderColor: colors.gray[300],
       borderRadius: borderRadius.small,
       display: "flex",
-      minWidth: 100,
+
       width: "fit-content",
       overflow: "hidden",
       position: "relative",
@@ -31,6 +31,11 @@ const SelectMenuContainer = styled.div(
         paddingX: space["s-15"],
         paddingY: space["s-10"],
         fontSize: fontSizes[1],
+        minWidth: 100,
+        maxWidth: 250,
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
       },
       "&::after": {
         position: "absolute",
@@ -65,7 +70,7 @@ const SelectMenuDropdownWrapper = styled.div(({ open }: MenuDropdownProps) =>
 
 const SelectMenuDropdown = styled.ul(
   css(({ colors, borders, borderRadius, boxShadow }: ThemeInterface) => ({
-    backgroundColor: colors[100],
+    backgroundColor: colors.white,
     listStyle: "none",
     margin: 0,
     padding: 0,
@@ -73,6 +78,7 @@ const SelectMenuDropdown = styled.ul(
     borderColor: colors.gray[300],
     borderRadius: borderRadius.small,
     minWidth: 100,
+    // maxWidth: 250,
     boxShadow: boxShadow,
   }))
 );

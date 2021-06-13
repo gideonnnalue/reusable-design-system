@@ -3,16 +3,17 @@ import checkImg from "../../images/check-light.svg";
 
 import { SelectMenuInput } from "../../theme/components";
 
-import { OptionProps } from "./types";
+import { OptionExtendedProps } from "./types";
 
 const {
-  SelectMenuItem: { MenuItemWrapper },
+  SelectMenuItem: { MenuItemWrapper, MenuItemDescription },
 } = SelectMenuInput;
 
-const Option: FC<OptionProps> = ({
+const OptionExtended: FC<OptionExtendedProps> = ({
   children,
   defaultValue,
   value,
+  desc,
   index,
   activeIndex,
   currentValue,
@@ -34,9 +35,16 @@ const Option: FC<OptionProps> = ({
       onClick={() => onItemClicked(value, index, children)}
     >
       <img src={checkImg} alt="check" />
-      <span>{children}</span>
+      <span>
+        {children}
+        <MenuItemDescription
+          selected={currentValue === value && index === activeIndex}
+        >
+          {desc}
+        </MenuItemDescription>
+      </span>
     </MenuItemWrapper>
   );
 };
 
-export default Option;
+export default OptionExtended;

@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class=""
+  >
+    <div
+      class="css-1hnyd0r"
+      data-testid="select-wrapper"
+    >
+      <div
+        class="css-fdvb0z"
+        data-testid="select-button"
+        role="button"
+        tabindex="0"
+      >
+        <span>
+          Select an Item
+        </span>
+        <img
+          alt="arrow"
+          src="chevron-down.svg"
+        />
+      </div>
+      <div
+        class="css-1vznqvx"
+      >
+        <ul
+          class="css-5ubqti"
+          role="listbox"
+        >
+          <li
+            aria-disabled="false"
+            aria-selected="false"
+            class="css-k4di0t"
+            data-value="hopper"
+            role="option"
+            tabindex="-1"
+          >
+            <img
+              alt="check"
+              src="check-light.svg"
+            />
+            <span>
+              Hopper
+              <p
+                class="css-1bj4mrz"
+              >
+                Grace Hopper was an American computer scientist and US navy rear admiral
+              </p>
+            </span>
+          </li>
+          <li
+            aria-disabled="false"
+            aria-selected="false"
+            class="css-k4di0t"
+            data-value="holderton"
+            role="option"
+            tabindex="-1"
+          >
+            <img
+              alt="check"
+              src="check-light.svg"
+            />
+            <span>
+              Holberton
+              <p
+                class="css-1bj4mrz"
+              >
+                Frances Elizabeth Holberton was one of the programmers of the first computer
+              </p>
+            </span>
+          </li>
+          <div
+            class="css-1trqa8a"
+          />
+          <li
+            aria-disabled="false"
+            aria-selected="false"
+            class="css-k4di0t"
+            data-value="teitelbaum"
+            role="option"
+            tabindex="-1"
+          >
+            <img
+              alt="check"
+              src="check-light.svg"
+            />
+            <span>
+              Teitelbaum
+              <p
+                class="css-1bj4mrz"
+              >
+                Ruth Teitelbaum Hopper was one of the first computer programmers of the world
+              </p>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

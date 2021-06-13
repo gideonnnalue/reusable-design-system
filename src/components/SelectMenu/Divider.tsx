@@ -1,10 +1,11 @@
+import { FC } from "react";
 import { SelectMenuInput } from "../../theme/components";
 
 const {
   SelectMenuItem: { MenuItemDivider },
 } = SelectMenuInput;
 
-const Divider = (): JSX.Element => {
+const Divider: FC = (): JSX.Element => {
   return <MenuItemDivider />;
 };
 
