@@ -70,7 +70,9 @@ const Select: FC<SelectProps> = ({
         tabIndex={0}
         onClick={openSelect}
       >
-        <span>{activeText || "Select an Item"}</span>
+        <span data-testid="selected-text">
+          {activeText || "Select an Item"}
+        </span>
         <img src={chevronImg} alt="arrow" />
       </SelectMenuContainer>
       <SelectMenuDropdownWrapper open={selectOpen}>

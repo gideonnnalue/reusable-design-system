@@ -1,16 +1,26 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { ThemeProvider } from "@emotion/react";
 import "./App.css";
 
 import { SelectMenu } from "./components";
 import theme from "./theme";
 
+const { lightTheme, darkTheme } = theme;
+
 const { Select, Option, OptionExtended, Divider } = SelectMenu;
 
 const App: FC = () => {
+  const [isDarkMode, setIsDarkMode] = useState(true);
   return (
-    <ThemeProvider theme={theme}>
-      <div className="">
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <div
+        style={{
+          backgroundColor: isDarkMode
+            ? darkTheme.colors.black
+            : lightTheme.backgroundColor,
+          height: "100vh",
+        }}
+      >
         <Select defaultValue="" onChange={() => {}}>
           <OptionExtended
             value="hopper"
@@ -33,19 +43,16 @@ const App: FC = () => {
           </OptionExtended>
         </Select>
 
-        {/* <div>
+        <div>
           <Select defaultValue="" onChange={() => {}}>
-            <Option value="hopper">
-              Hopperjdjjjdjdjdjdjjdjddjjddjdpspoopdsopdosdsklsldklskldlksldksldkjjdjjj
-            </Option>
+            <Option value="hopper">Hopper</Option>
             <Option value="holberton">Holberton</Option>
             <Divider />
             <Option value="antonelli">Antonelli</Option>
             <Option value="bartik">Bartik</Option>
             <Option value="teitelbaum">Teitelbaum</Option>
-            <Option value="bartik">Bartik</Option>
           </Select>
-        </div> */}
+        </div>
       </div>
     </ThemeProvider>
   );

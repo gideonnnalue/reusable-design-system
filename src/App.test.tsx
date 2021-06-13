@@ -4,7 +4,7 @@ import App from "./App";
 
 afterEach(cleanup);
 
-test("check tests", () => {
+test("renders learn react link", () => {
   console.log("working");
 });
 

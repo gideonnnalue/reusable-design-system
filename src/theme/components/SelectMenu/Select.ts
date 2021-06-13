@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import css from "@styled-system/css";
 
 import { MenuDropdownProps } from "./types";
-import { ThemeInterface } from "../../types";
+import { ThemeInterface, ExtendedThemeInterface } from "../../themeSetup/types";
 
 const SelectMenuWrapper = styled.div(
   css(({ space }: ThemeInterface) => {
@@ -15,42 +15,58 @@ const SelectMenuWrapper = styled.div(
 );
 
 const SelectMenuContainer = styled.div(
-  css(({ borders, colors, borderRadius, space, fontSizes }: ThemeInterface) => {
-    return {
-      border: borders.thin,
-      borderColor: colors.gray[300],
-      borderRadius: borderRadius.small,
-      display: "flex",
-
-      width: "fit-content",
-      overflow: "hidden",
-      position: "relative",
-      cursor: "pointer",
-      "& span": {
-        display: "block",
-        paddingX: space["s-15"],
-        paddingY: space["s-10"],
-        fontSize: fontSizes[1],
-        minWidth: 100,
-        maxWidth: 250,
+  css(
+    ({
+      borders,
+      colors,
+      borderRadius,
+      space,
+      fontSizes,
+      textColor,
+      borderColor,
+      backgroundColor,
+      hoverColor,
+    }: ExtendedThemeInterface) => {
+      return {
+        border: borders.thin,
+        borderColor: borderColor,
+        borderRadius: borderRadius.small,
+        display: "flex",
+        backgroundColor: backgroundColor,
+        width: "fit-content",
         overflow: "hidden",
-        textOverflow: "ellipsis",
-        whiteSpace: "nowrap",
-      },
-      "&::after": {
-        position: "absolute",
-        content: '""',
-        bottom: 0,
-        left: 0,
-        width: "100%",
-        height: 1,
-        backgroundColor: colors.gray[200],
-      },
-      "& img": {
-        paddingRight: space["s-10"],
-      },
-    };
-  })
+        position: "relative",
+        cursor: "pointer",
+        transition: "all 0.2 ease-in",
+        "& span": {
+          display: "block",
+          paddingX: space["s-15"],
+          paddingY: space["s-10"],
+          fontSize: fontSizes[1],
+          minWidth: 100,
+          maxWidth: 250,
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+          color: textColor,
+          transition: "all 0.2 ease-in",
+        },
+        "&::after": {
+          position: "absolute",
+          content: '""',
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          height: 1,
+          backgroundColor: hoverColor,
+          transition: "all 0.2 ease-in",
+        },
+        "& img": {
+          paddingRight: space["s-10"],
+        },
+      };
+    }
+  )
 );
 
 const SelectMenuDropdownWrapper = styled.div(({ open }: MenuDropdownProps) =>
@@ -69,18 +85,28 @@ const SelectMenuDropdownWrapper = styled.div(({ open }: MenuDropdownProps) =>
 );
 
 const SelectMenuDropdown = styled.ul(
-  css(({ colors, borders, borderRadius, boxShadow }: ThemeInterface) => ({
-    backgroundColor: colors.white,
-    listStyle: "none",
-    margin: 0,
-    padding: 0,
-    border: borders.thin,
-    borderColor: colors.gray[300],
-    borderRadius: borderRadius.small,
-    minWidth: 100,
-    // maxWidth: 250,
-    boxShadow: boxShadow,
-  }))
+  css(
+    ({
+      colors,
+      borders,
+      borderRadius,
+      boxShadow,
+      backgroundColor,
+      borderColor,
+    }: ExtendedThemeInterface) => ({
+      backgroundColor: backgroundColor,
+      listStyle: "none",
+      margin: 0,
+      padding: 0,
+      border: borders.thin,
+      borderColor: borderColor,
+      borderRadius: borderRadius.small,
+      minWidth: 100,
+      // maxWidth: 250,
+      boxShadow: boxShadow,
+      transition: "all 0.2 ease-in",
+    })
+  )
 );
 
 export {

@@ -32,6 +32,7 @@ const Option: FC<OptionProps> = ({
       data-value={value}
       tabIndex={currentValue === value && index === activeIndex ? 0 : -1}
       onClick={() => onItemClicked(value, index, children)}
+      data-testid={value}
     >
       <img src={checkImg} alt="check" />
       <span>{children}</span>

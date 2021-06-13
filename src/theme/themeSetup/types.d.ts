@@ -25,3 +25,11 @@ export type DynamicKeyStringValueNumber = {
 export type DynamicKeyNumberValueString = {
   [key: string]: number;
 };
+
+export interface ExtendedThemeInterface extends ThemeInterface {
+  backgroundColor: string | any;
+  textColor: string | any;
+  borderColor: string | any;
+  hoverColor: string | any;
+  subTextColor: string | any;
+}
