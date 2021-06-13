@@ -1,4 +1,4 @@
-import { useEffect, FC } from "react";
+import React, { useEffect, FC } from "react";
 import checkImg from "../../images/check-light.svg";
 
 import { SelectMenuInput } from "../../theme/components";
@@ -40,4 +40,4 @@ const Option: FC<OptionProps> = ({
   );
 };
 
-export default Option;
+export default React.memo(Option);

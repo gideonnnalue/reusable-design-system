@@ -47,6 +47,7 @@ theme.borderRadius = {
 theme.transition = {
   dropdown:
     "all 284ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 189ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+  simple: "all 0.2s ease-in",
 };
 
 theme.boxShadow = `0px 2px 8px 0px ${theme.colors.gray[400]}26`;

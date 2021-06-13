@@ -7,7 +7,7 @@ import { ThemeInterface, ExtendedThemeInterface } from "../../themeSetup/types";
 const SelectMenuWrapper = styled.div(
   css(({ space }: ThemeInterface) => {
     return {
-      margin: space["s-25"],
+      margin: space["s-5"],
       position: "relative",
       display: "inline-block",
     };
@@ -18,7 +18,6 @@ const SelectMenuContainer = styled.div(
   css(
     ({
       borders,
-      colors,
       borderRadius,
       space,
       fontSizes,
@@ -26,6 +25,7 @@ const SelectMenuContainer = styled.div(
       borderColor,
       backgroundColor,
       hoverColor,
+      transition,
     }: ExtendedThemeInterface) => {
       return {
         border: borders.thin,
@@ -37,7 +37,7 @@ const SelectMenuContainer = styled.div(
         overflow: "hidden",
         position: "relative",
         cursor: "pointer",
-        transition: "all 0.2 ease-in",
+        transition: transition.simple,
         "& span": {
           display: "block",
           paddingX: space["s-15"],
@@ -49,7 +49,7 @@ const SelectMenuContainer = styled.div(
           textOverflow: "ellipsis",
           whiteSpace: "nowrap",
           color: textColor,
-          transition: "all 0.2 ease-in",
+          transition: transition.simple,
         },
         "&::after": {
           position: "absolute",
@@ -59,7 +59,7 @@ const SelectMenuContainer = styled.div(
           width: "100%",
           height: 1,
           backgroundColor: hoverColor,
-          transition: "all 0.2 ease-in",
+          transition: transition.simple,
         },
         "& img": {
           paddingRight: space["s-10"],
@@ -87,12 +87,12 @@ const SelectMenuDropdownWrapper = styled.div(({ open }: MenuDropdownProps) =>
 const SelectMenuDropdown = styled.ul(
   css(
     ({
-      colors,
       borders,
       borderRadius,
       boxShadow,
       backgroundColor,
       borderColor,
+      transition,
     }: ExtendedThemeInterface) => ({
       backgroundColor: backgroundColor,
       listStyle: "none",
@@ -104,7 +104,7 @@ const SelectMenuDropdown = styled.ul(
       minWidth: 100,
       // maxWidth: 250,
       boxShadow: boxShadow,
-      transition: "all 0.2 ease-in",
+      transition: transition.simple,
     })
   )
 );

@@ -1,3 +1,4 @@
 import * as SelectMenuInput from "./SelectMenu";
+import CheckBox from "./Checkbox";
 
-export { SelectMenuInput };
+export { CheckBox, SelectMenuInput };

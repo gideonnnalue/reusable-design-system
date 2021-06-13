@@ -13,6 +13,7 @@ const MenuItemWrapper = styled.li(({ selected }: MenuItemProps) =>
       backgroundColor,
       textColor,
       hoverColor,
+      transition,
     }: ExtendedThemeInterface) => {
       return {
         paddingX: 0,
@@ -28,10 +29,10 @@ const MenuItemWrapper = styled.li(({ selected }: MenuItemProps) =>
         hyphens: "auto",
         display: "flex",
         alignItems: "flex-start",
-        transition: "all 0.2 ease-in",
+        transition: transition.simple,
         "&:hover": {
           backgroundColor: selected ? colors.green[100] : hoverColor,
-          transition: "all 0.2 ease-in",
+          transition: transition.simple,
         },
         "& img": {
           paddingX: space["s-15"],
@@ -44,25 +45,32 @@ const MenuItemWrapper = styled.li(({ selected }: MenuItemProps) =>
 );
 
 const MenuItemDivider = styled.div(
-  css(({ borderColor }: ExtendedThemeInterface) => ({
+  css(({ borderColor, transition }: ExtendedThemeInterface) => ({
     height: 1,
     width: "100%",
     backgroundColor: borderColor,
-    transition: "all 0.2 ease-in",
+    transition: transition.simple,
   }))
 );
 
 const MenuItemDescription = styled.p(({ selected }: MenuItemProps) =>
-  css(({ colors, fontSizes, subTextColor }: ExtendedThemeInterface) => {
-    return {
-      fontSize: fontSizes[0],
-      color: selected ? colors.white : subTextColor,
-      margin: 0,
-      width: 228,
-      whiteSpace: "pre-wrap",
-      transition: "all 0.2 ease-in",
-    };
-  })
+  css(
+    ({
+      colors,
+      fontSizes,
+      subTextColor,
+      transition,
+    }: ExtendedThemeInterface) => {
+      return {
+        fontSize: fontSizes[0],
+        color: selected ? colors.white : subTextColor,
+        margin: 0,
+        width: 228,
+        whiteSpace: "pre-wrap",
+        transition: transition.simple,
+      };
+    }
+  )
 );
 
 export { MenuItemWrapper, MenuItemDescription, MenuItemDivider };

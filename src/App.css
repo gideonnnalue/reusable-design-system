@@ -7,3 +7,13 @@ body {
   font-family: -apple-system, "Segoe UI", "Roboto", "Arial", sans-serif;
   color: #191d2f;
 }
+
+.checkbox-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.select-wrapper {
+  display: flex;
+}
