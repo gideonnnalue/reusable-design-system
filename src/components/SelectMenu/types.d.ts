@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 export interface SelectProps {
-  defaultValue?: string;
+  defaultValue?: string | number;
   onChange: Function;
-  children: any;
+  children: ReactNode | any;
 }
 
 export interface OptionProps {
@@ -13,7 +13,7 @@ export interface OptionProps {
   index?: number;
   activeIndex?: number;
   currentValue?: string;
-  onItemClicked?: any;
+  onItemClicked?: Function | any;
 }
 
 export interface OptionExtendedProps extends OptionProps {

@@ -14,6 +14,10 @@ const App: FC = () => {
   const switchTheme = () => {
     setIsDarkMode((prev) => !prev);
   };
+
+  const onInputChange = (value: string) => {
+    console.log(value);
+  };
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <div
@@ -29,7 +33,7 @@ const App: FC = () => {
           <Checkbox checked={isDarkMode} onChange={switchTheme} />
         </div>
         <div className="select-wrapper">
-          <Select defaultValue="" onChange={() => {}}>
+          <Select defaultValue="" onChange={onInputChange}>
             <OptionExtended
               value="hopper"
               desc="Grace Hopper was an American computer scientist and US navy rear admiral"
@@ -52,7 +56,7 @@ const App: FC = () => {
           </Select>
 
           <div style={{ marginLeft: 50 }}>
-            <Select defaultValue="" onChange={() => {}}>
+            <Select defaultValue="" onChange={onInputChange}>
               <Option value="hopper">Hopper</Option>
               <Option value="holberton">Holberton</Option>
               <Divider />
