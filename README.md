@@ -19,7 +19,7 @@ This is a basic usage of my react select menu written in Typescript. Please note
 
 Displaying a simple select option, pass into the option props an array of objects with **_key_** and **_value_** properties.
 
-<img src="./Screenshot-simple.png" alt="Logo" width="120">
+<img src="./Screenshot-simple.png" alt="Logo" width="400">
 
 ```js
 	import { Select } from  "./components";
