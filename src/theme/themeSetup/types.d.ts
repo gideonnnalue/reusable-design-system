@@ -6,7 +6,7 @@ export interface ThemeInterface {
           [key: number]: string;
         };
   };
-  fontSizes: int[];
+  fontSizes: number[];
   space: DynamicKeyStringValueNumber;
   borders: DynamicKeyValueString;
   borderRadius: DynamicKeyStringValueNumber;
@@ -27,9 +27,9 @@ export type DynamicKeyNumberValueString = {
 };
 
 export interface ExtendedThemeInterface extends ThemeInterface {
-  backgroundColor: string | any;
-  textColor: string | any;
-  borderColor: string | any;
-  hoverColor: string | any;
-  subTextColor: string | any;
+  backgroundColor: string | { [key: number]: string };
+  textColor: string | { [key: number]: string };
+  borderColor: string | { [key: number]: string };
+  hoverColor: string | { [key: number]: string };
+  subTextColor: string | { [key: number]: string };
 }

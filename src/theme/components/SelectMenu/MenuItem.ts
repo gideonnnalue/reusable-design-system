@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import css from "@styled-system/css";
 
 import { MenuItemProps } from "./types";
-import { ThemeInterface, ExtendedThemeInterface } from "../../themeSetup/types";
+import { ExtendedThemeInterface } from "../../themeSetup/types";
 
 const MenuItemWrapper = styled.li(({ selected }: MenuItemProps) =>
   css(

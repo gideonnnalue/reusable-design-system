@@ -1,4 +1,4 @@
 import * as SelectMenuInput from "./SelectMenu";
-import CheckBox from "./Checkbox";
+import { CheckBox, BackgroundWrapper } from "./Checkbox";
 
-export { CheckBox, SelectMenuInput };
+export { BackgroundWrapper, CheckBox, SelectMenuInput };

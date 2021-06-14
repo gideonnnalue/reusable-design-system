@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import css from "@styled-system/css";
 
 import { CheckBoxProps } from "./SelectMenu/types";
-import { ThemeInterface } from "../themeSetup/types";
+import { ThemeInterface, ExtendedThemeInterface } from "../themeSetup/types";
 
 const CheckBox = styled.div(({ checked }: CheckBoxProps) =>
   css(({ colors }: ThemeInterface) => {
@@ -41,4 +41,13 @@ const CheckBox = styled.div(({ checked }: CheckBoxProps) =>
   })
 );
 
-export default CheckBox;
+const BackgroundWrapper = styled.div(
+  css(({ backgroundColor }: ExtendedThemeInterface) => {
+    return {
+      backgroundColor: backgroundColor,
+      height: "100vh",
+    };
+  })
+);
+
+export { CheckBox, BackgroundWrapper };

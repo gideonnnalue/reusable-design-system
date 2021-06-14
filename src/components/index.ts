@@ -1,5 +1,5 @@
-import * as SelectMenu from "./SelectMenu";
+import Select from "./SelectMenu";
 
 import Checkbox from "./Checkbox";
 
-export { Checkbox, SelectMenu };
+export { Checkbox, Select };

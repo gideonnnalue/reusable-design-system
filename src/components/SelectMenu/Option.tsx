@@ -1,4 +1,4 @@
-import React, { useEffect, FC } from "react";
+import React, { FC } from "react";
 import checkImg from "../../images/check-light.svg";
 
 import { SelectMenuInput } from "../../theme/components";
@@ -6,36 +6,37 @@ import { SelectMenuInput } from "../../theme/components";
 import { OptionProps } from "./types";
 
 const {
-  SelectMenuItem: { MenuItemWrapper },
+  SelectMenuItem: { MenuItemWrapper, MenuItemDescription },
 } = SelectMenuInput;
 
 const Option: FC<OptionProps> = ({
-  children,
-  defaultValue,
-  value,
   index,
-  activeIndex,
-  currentValue,
+  value,
   onItemClicked,
+  isSelected,
+  desc,
+  isExtendible,
 }): JSX.Element => {
-  useEffect(() => {
-    if (defaultValue && defaultValue === value) {
-      onItemClicked(value, index, children);
-    }
-  }, []);
   return (
     <MenuItemWrapper
-      selected={currentValue === value && index === activeIndex}
+      selected={isSelected}
       role="option"
-      aria-selected={currentValue === value && index === activeIndex}
+      aria-selected={isSelected}
       aria-disabled={false}
-      data-value={value}
-      tabIndex={currentValue === value && index === activeIndex ? 0 : -1}
-      onClick={() => onItemClicked(value, index, children)}
-      data-testid={value}
+      data-value={index}
+      tabIndex={isSelected ? 0 : -1}
+      onClick={() => onItemClicked(index, { key: index, value, desc })}
+      data-testid={index}
     >
       <img src={checkImg} alt="check" />
-      <span>{children}</span>
+      <span>
+        {value}
+        {isExtendible && desc && (
+          <MenuItemDescription selected={isSelected}>
+            {desc}
+          </MenuItemDescription>
+        )}
+      </span>
     </MenuItemWrapper>
   );
 };

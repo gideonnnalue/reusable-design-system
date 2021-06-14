@@ -2,55 +2,42 @@ import React from "react";
 import { render, cleanup, screen, fireEvent } from "@testing-library/react";
 
 import Select from "./Select";
-import Option from "./Option";
-import Divider from "./Divider";
 import App from "../../App";
+
+import { items, itemsDivided } from "../../constants";
 
 // afterEach(cleanup);
 beforeEach(() => {
   render(
     <App>
-      <Select defaultValue="hopper" onChange={() => {}}>
-        <Option value="hopper">Hopper</Option>
-        <Option value="holberton">Holberton</Option>
-        <Divider />
-        <Option value="antonelli">Antonelli</Option>
-        <Option value="bartik">Bartik</Option>
-        <Option value="teitelbaum">Teitelbaum</Option>
-      </Select>
+      <Select options={items} isExtendible={false} onChange={() => {}} />
     </App>
   );
 });
 
 describe("Select Component", () => {
-  // test("should take a snapshot", () => {
-  //   const { asFragment } = render(
-  //     <App>
-  //       <Select defaultValue="hopper" onChange={() => {}}>
-  //         <Option value="hopper">Hopper</Option>
-  //         <Option value="holberton">Holberton</Option>
-  //         <Divider />
-  //         <Option value="antonelli">Antonelli</Option>
-  //         <Option value="bartik">Bartik</Option>
-  //         <Option value="teitelbaum">Teitelbaum</Option>
-  //       </Select>
-  //     </App>
-  //   );
-  //   expect(asFragment()).toMatchSnapshot();
-  // });
+  test("should take a snapshot", () => {
+    const { asFragment } = render(
+      <App>
+        <Select options={items} isExtendible={false} onChange={() => {}} />
+      </App>
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-  test("should be false", () => {
+  test("should not have Antonelli text", () => {
     expect(screen.getByTestId("selected-text")).not.toHaveTextContent(
       "Antonelli"
+    );
+  });
+  test(`should contain ${items[0].value} text`, () => {
+    expect(screen.getByTestId("selected-text")).toHaveTextContent(
+      items[0].value
     );
   });
 
   test("should have a role attribute", () => {
     expect(screen.getByTestId("select-button")).toHaveAttribute("role");
-  });
-
-  test("hold contain the hopper", () => {
-    expect(screen.getByText("Hopper")).toBeInTheDocument();
   });
 
   test("text should be changed when clicked", () => {

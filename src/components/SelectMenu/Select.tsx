@@ -1,45 +1,32 @@
-import React, { Fragment, useEffect, useState, useRef, FC } from "react";
+import React, { useCallback, useEffect, useState, useRef, FC } from "react";
 
+import SelectDropdown from "./SelectDropdown";
 import chevronImg from "../../images/chevron-down.svg";
 
 import { SelectMenuInput } from "../../theme/components";
-import { SelectProps } from "./types";
+import { SelectProps, ItemInterface } from "./types";
 
 const {
-  SelectMenu: {
-    SelectMenuWrapper,
-    SelectMenuContainer,
-    SelectMenuDropdownWrapper,
-    SelectMenuDropdown,
-  },
+  SelectMenu: { SelectMenuWrapper, SelectMenuContainer },
 } = SelectMenuInput;
 
 const Select: FC<SelectProps> = ({
-  children,
-  defaultValue,
+  options,
   onChange,
+  isExtendible = false,
 }): JSX.Element => {
-  const node: any = useRef();
-  const [currentValue, setCurrentValue] = useState(defaultValue);
-  const [activeText, setActiveText] = useState("");
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [selectOpen, setSelectOpen] = useState(false);
-  const onItemClicked = (value: string, index: number, text: string) => {
-    setCurrentValue(value);
-    setActiveIndex(index);
-    setActiveText(text);
-    onChange(value, index);
-  };
-
-  const childrenModified = React.Children.map(children, (child, index) => {
-    return React.cloneElement(child, {
-      onItemClicked,
-      index,
-      currentValue,
-      activeIndex,
-      defaultValue,
-    });
-  });
+  const node = useRef<HTMLDivElement | null>(null);
+  const [activeText, setActiveText] = useState<string | number>("");
+  const [activeOption, setActiveOption] = useState<string | number>("");
+  const [selectOpen, setSelectOpen] = useState<boolean>(false);
+  const onItemClicked = useCallback(
+    (key: string | number, item: ItemInterface) => {
+      setActiveOption(key);
+      setActiveText(item.value);
+      onChange(key, item);
+    },
+    [onChange]
+  );
 
   const openSelect = () => {
     setSelectOpen(true);
@@ -48,19 +35,45 @@ const Select: FC<SelectProps> = ({
     setSelectOpen(false);
   };
 
-  const handleClickOutside = (e: any) => {
-    if (node.current.contains(e.target)) {
+  const handleClickOutside = useCallback((e: any) => {
+    if (node?.current?.contains(e.target)) {
       return;
     }
     closeSelect();
-  };
+  }, []);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [handleClickOutside]);
+
+  const isDoubledArray = useCallback(
+    (optionItems: ItemInterface[] | ItemInterface[][]): boolean => {
+      if (options.length > 0) {
+        if (
+          (optionItems as ItemInterface[][]).every(
+            (items) => items.constructor === Array
+          )
+        ) {
+          return true;
+        }
+      }
+      return false;
+    },
+    [options.length]
+  );
+
+  useEffect(() => {
+    if (isDoubledArray(options)) {
+      setActiveOption((options as ItemInterface[][])[0][0].key);
+      setActiveText((options as ItemInterface[][])[0][0].value);
+    } else {
+      setActiveOption((options as ItemInterface[])[0].key);
+      setActiveText((options as ItemInterface[])[0].value);
+    }
+  }, [isDoubledArray, options]);
 
   return (
     <SelectMenuWrapper data-testid="select-wrapper" ref={node}>
@@ -75,11 +88,13 @@ const Select: FC<SelectProps> = ({
         </span>
         <img src={chevronImg} alt="arrow" />
       </SelectMenuContainer>
-      <SelectMenuDropdownWrapper open={selectOpen}>
-        <SelectMenuDropdown role="listbox">
-          <Fragment>{childrenModified}</Fragment>
-        </SelectMenuDropdown>
-      </SelectMenuDropdownWrapper>
+      <SelectDropdown
+        selectOpen={selectOpen}
+        activeOption={activeOption}
+        onItemClicked={onItemClicked}
+        options={options}
+        isExtendible={isExtendible}
+      />
     </SelectMenuWrapper>
   );
 };
