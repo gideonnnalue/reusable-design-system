@@ -39,8 +39,10 @@ Displaying a simple select option, pass into the option props an array of object
 
 Displaying a grouped select option, pass into the option props an array of grouped array objects with **_key_** and **_value_** properties.
 
-<img src="./Screenshot-grouped.png" alt="Logo" width="400">
-<img src="./Screenshot-darkmode.png" alt="Logo" width="400">
+<div style="display: flex;">
+<img src="./Screenshot-grouped.png" alt="Logo" width="370">
+<img src="./Screenshot-darkmode.png" alt="Logo" width="370">
+</div>
 
 ```js
 	import { Select } from  "./components";
