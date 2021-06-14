@@ -39,6 +39,9 @@ Displaying a simple select option, pass into the option props an array of object
 
 Displaying a grouped select option, pass into the option props an array of grouped array objects with **_key_** and **_value_** properties.
 
+<img src="./Screenshot-grouped.png" alt="Logo" width="400">
+<img src="./Screenshot-darkmode.png" alt="Logo" width="400">
+
 ```js
 	import { Select } from  "./components";
 
@@ -56,6 +59,8 @@ Displaying a grouped select option, pass into the option props an array of group
 #### Select with extended menu item
 
 Displaying an extended select option, pass into the option props simple or grouped array items with **_key_**, **_value_** and **_desc_** properties. Make sure the isExtendible prop with a value of true is added on the select component to let select know that you want to use the extended menu item.
+
+<img src="./Screenshot-extended.png" alt="Logo" width="400">
 
 ```js
 	import { Select } from  "./components";
