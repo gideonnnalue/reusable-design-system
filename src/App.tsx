@@ -8,7 +8,9 @@ import theme from "./theme";
 
 import { ItemInterface } from "./components/SelectMenu/types";
 
-import { items } from "./constants";
+import { items, itemsGrouped } from "./constants";
+// items for simple select items
+// itemsGrouped for grouped select items
 
 const { lightTheme, darkTheme } = theme;
 

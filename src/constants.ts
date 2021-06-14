@@ -29,7 +29,7 @@ export const items = [
   },
 ];
 
-export const itemsDivided = [
+export const itemsGrouped = [
   [
     {
       key: "hopper",
