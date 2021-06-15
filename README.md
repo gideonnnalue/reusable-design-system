@@ -22,17 +22,17 @@ Displaying a simple select option, pass into the option props an array of object
 <img src="./Screenshot-simple.png" alt="Logo" width="400">
 
 ```js
-	import { Select } from  "./components";
+import { Select } from  "./components";
 
-	const items = [
-		{key:  "hopper", value:  "Hopper"},
-		{key:  "holberton", value:  "Holberton"},
-	]
+const items = [
+	{key:  "hopper", value:  "Hopper"},
+	{key:  "holberton", value:  "Holberton"},
+]
 
-	<Select
-		onChange={onInputChange}
-		options={items}
-	/>
+<Select
+	onChange={onInputChange}
+	options={items}
+/>
 ```
 
 #### Grouped select
@@ -45,17 +45,17 @@ Displaying a grouped select option, pass into the option props an array of group
 </div>
 
 ```js
-	import { Select } from  "./components";
+import { Select } from  "./components";
 
-	const items = [
-		[{key:  "hopper", value:  "Hopper"}, {key:  "holberton", value:  "Holberton"}],
-		[{key:  "antonelli", value:  "Antonelli"}, {key:  "bartik", value:  "Bartik"}],
-	]
+const items = [
+	[{key:  "hopper", value:  "Hopper"}, {key:  "holberton", value:  "Holberton"}],
+	[{key:  "antonelli", value:  "Antonelli"}, {key:  "bartik", value:  "Bartik"}],
+]
 
-	<Select
-		onChange={onInputChange}
-		options={items}
-	/>
+<Select
+	onChange={onInputChange}
+	options={items}
+/>
 ```
 
 #### Select with extended menu item
@@ -65,25 +65,23 @@ Displaying an extended select option, pass into the option props simple or group
 <img src="./Screenshot-extended.png" alt="Logo" width="400">
 
 ```js
-	import { Select } from  "./components";
+import { Select } from  "./components";
 
-	const items = [
-		[{key:  "hopper", value:  "Hopper", desc: "lorem ipsum"}, {key:  "holberton", value:  "Holberton", desc: "lorem ipsum"}],
-		[{key:  "antonelli", value:  "Antonelli", desc: "lorem ipsum"}, {key:  "bartik", value:  "Bartik", desc: "lorem ipsum"}],
-	]
+const items = [
+	[{key:  "hopper", value:  "Hopper", desc: "lorem ipsum"}, {key:  "holberton", value:  "Holberton", desc: "lorem ipsum"}],
+	[{key:  "antonelli", value:  "Antonelli", desc: "lorem ipsum"}, {key:  "bartik", value:  "Bartik", desc: "lorem ipsum"}],
+]
 
-	<Select
-		onChange={onInputChange}
-		options={items}
-		isExtendible={true}
-	/>
+<Select
+	onChange={onInputChange}
+	options={items}
+	isExtendible={true}
+/>
 ```
 
 ## API
 
 ### Select Props
-
-    <Select defaultValue="" isExtendible={true} onChange={onInputChange}></Select>
 
 | PROPERTY     | DESCRIPTION                           | TYPE              |
 | ------------ | ------------------------------------- | ----------------- |
